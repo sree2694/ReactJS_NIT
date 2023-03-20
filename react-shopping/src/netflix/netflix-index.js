@@ -1,15 +1,17 @@
 import { NetflixHeader } from "./netflix-header"
 import { NetflixMain } from "./netflix-main"
 import './netflix-index.css'
-export function  NetflixIndex(){
-    return(
-        <div className="netflix-back">
+export function NetflixIndex() {
+    return (
+        <div className="netflix-body">
+            <div className="netflix-shade">
             <header>
-<NetflixHeader/>
+                <NetflixHeader />
             </header>
             <section>
-<NetflixMain/>
+                <NetflixMain />
             </section>
+            </div>
         </div>
     )
 }

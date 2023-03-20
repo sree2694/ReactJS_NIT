@@ -1,7 +1,11 @@
-.netflix-back {
+.netflix-body {
     background-image: url("netflixbanner.jpg");
     background-size: cover;
     color: white;
+    height: 768px;
+}
+.netflix-shade{
+    background-color: rgba(0, 0, 0, 0.5);
     height: 768px;
 }
 
@@ -34,7 +38,6 @@ main p {
 }
 
 .register-box {
-    /* width: 800px; */
     width: 100%;
 
 }

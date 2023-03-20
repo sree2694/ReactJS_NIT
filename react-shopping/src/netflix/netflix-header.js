@@ -1,21 +1,16 @@
 
 export function NetflixHeader(){
     return(
-        <header className="p-4 d-flex justify-content-between">
-        <div className="brand-title">NETFLIX</div>
-        <div className="d-flex">
-            <div className="dropdown me-4">
-                <button className="btn btn-dark dropdown-toggle">
-                    <span className="bi bi-globe"></span>
-                     English
-                </button>
-            </div>
-            <div>
-                <button className="btn btn-danger">
-                    Sign In
-                </button>
-            </div>
+      <div className="d-flex justify-content-between p-4">
+<div><h2>NETFLIX </h2></div>
+<div>
+<div className="input-group me-2">
+    <select className="me-2 form-select">
+        <option>Language</option>
+        </select>
+        <button className="btn btn-danger">Signin</button>
         </div>
-    </header>
+        </div>
+      </div>
     )
 }

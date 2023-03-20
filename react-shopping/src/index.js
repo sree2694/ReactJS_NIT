@@ -1,15 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { Login } from './components/login';
-import './index.css';
-// import { NetflixIndex } from './netflix/netflix-index';
-import reportWebVitals from './reportWebVitals';
 
+import './index.css';
+ import { NetflixIndex } from './netflix/netflix-index';
+import reportWebVitals from './reportWebVitals';
+import '../node_modules/bootstrap/dist/css/bootstrap.css';
+import '../node_modules/bootstrap-icons/font/bootstrap-icons.css';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    {/* <NetflixIndex /> */}
-    <Login/>
+    <NetflixIndex />
+    
   </React.StrictMode>
 );
 
