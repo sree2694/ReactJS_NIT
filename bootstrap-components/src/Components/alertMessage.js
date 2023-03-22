@@ -6,7 +6,7 @@ export function AlertMessage() {
             <button data-dismiss="alert" class="close">x</button>
             <h2 class="alert-heading">Registered Successfully</h2>
             <p>Your registration completed.</p>
-            <a class="alert-link" href="#">Login</a>
+            {/* <a class="alert-link" href="#">Login</a> */}
             <p>
                 <button data-dismiss="alert" class="btn btn-success">OK</button>
             </p>
