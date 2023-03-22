@@ -2,15 +2,20 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 
 import './index.css';
- import { NetflixIndex } from './netflix/netflix-index';
+
 import reportWebVitals from './reportWebVitals';
 import '../node_modules/bootstrap/dist/css/bootstrap.css';
 import '../node_modules/bootstrap-icons/font/bootstrap-icons.css';
+import { ObjectJson } from './databinding/ObjectJson';
+import { Array } from './databinding/Array';
+import { ArrayKey } from './databinding/ArrayKey';
+import { ArrayObjects } from './databinding/ArrayObjects';
+import { NestedIterations } from './databinding/NestedIterations';
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <NetflixIndex />
-    
+<NestedIterations/>
   </React.StrictMode>
 );
 
