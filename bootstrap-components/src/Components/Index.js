@@ -5,16 +5,18 @@ import { Buttons } from "./buttons"
 import { ToolbarAndGroup } from "./toolbarAndGroup"
 import "./index.css";
 import { Modal } from "./modal"
+import { Cards } from "./cards"
 
 export function Index(){
     return(
       <div className='container-fluid'>
-        <AlertMessage/><hr/>
+       <AlertMessage/><hr/>
         <Badge/><hr/>
         <BreadCrumb/><hr/>
         <Buttons/><hr/>
-        <ToolbarAndGroup/><hr/>
-        <Modal/><hr/>
+        <ToolbarAndGroup/><hr/> 
+        <Modal/><hr/> 
+        <Cards/>
 
  </div>
     )
