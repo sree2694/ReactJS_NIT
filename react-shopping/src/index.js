@@ -11,11 +11,13 @@ import { Array } from './databinding/Array';
 import { ArrayKey } from './databinding/ArrayKey';
 import { ArrayObjects } from './databinding/ArrayObjects';
 import { NestedIterations } from './databinding/NestedIterations';
+import { DataBinding } from './twowayBinding/data-binding';
+import { TwowayDataBinding } from './twowayBinding/twowayBinding';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-<NestedIterations/>
+<TwowayDataBinding/>
   </React.StrictMode>
 );
 
