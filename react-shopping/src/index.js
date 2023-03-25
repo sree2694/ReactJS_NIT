@@ -13,11 +13,12 @@ import { ArrayObjects } from './databinding/ArrayObjects';
 import { NestedIterations } from './databinding/NestedIterations';
 import { DataBinding } from './twowayBinding/data-binding';
 import { TwowayDataBinding } from './twowayBinding/twowayBinding';
+import { NasaComponent } from './nasa-api/nasa.component';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-<TwowayDataBinding/>
+<NasaComponent/>
   </React.StrictMode>
 );
 
