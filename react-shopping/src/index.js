@@ -6,20 +6,13 @@ import './index.css';
 import reportWebVitals from './reportWebVitals';
 import '../node_modules/bootstrap/dist/css/bootstrap.css';
 import '../node_modules/bootstrap-icons/font/bootstrap-icons.css';
-import { ObjectJson } from './databinding/ObjectJson';
-import { Array } from './databinding/Array';
-import { ArrayKey } from './databinding/ArrayKey';
-import { ArrayObjects } from './databinding/ArrayObjects';
-import { NestedIterations } from './databinding/NestedIterations';
-import { DataBinding } from './twowayBinding/data-binding';
-import { TwowayDataBinding } from './twowayBinding/twowayBinding';
-import { NasaComponent } from './nasa-api/nasa.component';
-import { NasaComponentCards } from './nasa-api/nasa.componentcards';
+
+import { FakestoreComponent } from './fakestoreapi/fakestore.component';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-<NasaComponentCards/>
+<FakestoreComponent/>
   </React.StrictMode>
 );
 
