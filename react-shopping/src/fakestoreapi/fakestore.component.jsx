@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import "./fakestore.component.css";
+import $ from "jquery";
 
 export function FakestoreComponent()
 {
@@ -13,12 +14,24 @@ export function FakestoreComponent()
     }
 
     function LoadCategories(){
-        fetch("http://fakestoreapi.com/products/categories")
-        .then((response)=> response.json())
-        .then((data)=> {
-            data.unshift("all");
-            setCategories(data);
+        $.ajax({
+            method: "get",
+            url: "http://fakestoreapi.com/products/categories",
+            success:(response) => {
+                response.unshift("all");
+                setCategories(response);
+            },
+            error: (response) => {
+                console.log(response);
+            }
         })
+
+        // fetch("http://fakestoreapi.com/products/categories")
+        // .then((response)=> response.json())
+        // .then((data)=> {
+        //     data.unshift("all");
+        //     setCategories(data);
+        // })
     }
 
     function LoadProducts(url){
