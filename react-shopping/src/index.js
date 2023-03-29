@@ -9,11 +9,12 @@ import '../node_modules/bootstrap-icons/font/bootstrap-icons.css';
 import "../node_modules/bootstrap/dist/js/bootstrap.bundle.js";
 
 import { FakestoreComponent } from './fakestoreapi/fakestore.component';
+import { StyleBinding } from './style-binding/style-binding';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-<FakestoreComponent/>
+<StyleBinding/>
   </React.StrictMode>
 );
 
