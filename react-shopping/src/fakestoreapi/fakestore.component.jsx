@@ -1,30 +1,39 @@
 import { useState, useEffect } from "react";
 import "./fakestore.component.css";
 import $ from "jquery";
+import axios from "axios";
 
-export function FakestoreComponent()
-{
+export function FakestoreComponent() {
     const [categories, setCategories] = useState([]);
     const [products, setProducts] = useState([]);
     const [cartItems, setCartItems] = useState([]);
     const [cartCount, setCartCount] = useState(0);
 
-    function GetCartCount(){
+    function GetCartCount() {
         setCartCount(cartItems.length);
     }
 
-    function LoadCategories(){
-        $.ajax({
-            method: "get",
-            url: "http://fakestoreapi.com/products/categories",
-            success:(response) => {
-                response.unshift("all");
-                setCategories(response);
-            },
-            error: (response) => {
-                console.log(response);
-            }
+    function LoadCategories() {
+        axios.get("http://fakestoreapi.com/products/categories")
+        .then((response)=> {
+            response.data.unshift("all");
+            setCategories(response.data);
         })
+        .catch((err)=> {
+            console.log(err);
+        })
+
+        // $.ajax({
+        //     method: "get",
+        //     url: "http://fakestoreapi.com/products/categories",
+        //     success: (response) => {
+        //         response.unshift("all");
+        //         setCategories(response);
+        //     },
+        //     error: (response) => {
+        //         console.log(response);
+        //     }
+        // })
 
         // fetch("http://fakestoreapi.com/products/categories")
         // .then((response)=> response.json())
@@ -34,43 +43,43 @@ export function FakestoreComponent()
         // })
     }
 
-    function LoadProducts(url){
+    function LoadProducts(url) {
         fetch(url)
-        .then((response)=> response.json())
-        .then((data)=>{
-             setProducts(data);
-        });
+            .then((response) => response.json())
+            .then((data) => {
+                setProducts(data);
+            });
     }
 
-    useEffect(()=>{
+    useEffect(() => {
         LoadCategories();
         LoadProducts("http://fakestoreapi.com/products");
         GetCartCount();
-    },[]);
+    }, []);
 
-    function handleCategoryChange(event){
-         if(event.target.value=="all"){
-             LoadProducts("http://fakestoreapi.com/products");
-         } else {
+    function handleCategoryChange(event) {
+        if (event.target.value == "all") {
+            LoadProducts("http://fakestoreapi.com/products");
+        } else {
             LoadProducts(`http://fakestoreapi.com/products/category/${event.target.value}`);
-         }
+        }
     }
 
-    function handleAddToCartClick(e){
+    function handleAddToCartClick(e) {
         fetch(`http://fakestoreapi.com/products/${e.target.id}`)
-        .then(response=> response.json())
-        .then(data=>{
-            cartItems.push(data);
-            GetCartCount();
-            alert(`${data.title}\nAdded to Cart`);
-        })
+            .then(response => response.json())
+            .then(data => {
+                cartItems.push(data);
+                GetCartCount();
+                alert(`${data.title}\nAdded to Cart`);
+            })
     }
 
-    function handleHomeClick(){
+    function handleHomeClick() {
         LoadProducts("http://fakestoreapi.com/products");
     }
 
-    return(
+    return (
         <div className="container-fluid">
             <header className="d-flex justify-content-between p-2 bg-dark text-white mt-2">
                 <div><h2>Fakestore</h2></div>
@@ -107,10 +116,10 @@ export function FakestoreComponent()
                                         </thead>
                                         <tbody>
                                             {
-                                                cartItems.map(item=>
+                                                cartItems.map(item =>
                                                     <tr>
                                                         <td>{item.title}</td>
-                                                        <td><img src={item.image} width="50" height="50"/></td>
+                                                        <td><img src={item.image} width="50" height="50" /></td>
                                                         <td>{item.price}</td>
                                                         <td>
                                                             <button className="btn btn-danger">
@@ -118,7 +127,7 @@ export function FakestoreComponent()
                                                             </button>
                                                         </td>
                                                     </tr>
-                                                    )
+                                                )
                                             }
                                         </tbody>
                                     </table>
@@ -130,41 +139,41 @@ export function FakestoreComponent()
             </header>
             <section className="mt-4 row">
                 <nav className="col-2">
-                   <div>
-                      <label className="form-label">Select Category</label>
-                      <div>
-                        <select onChange={handleCategoryChange} className="form-select">
-                            {
-                                categories.map(category=>
-                                     <option key={category} value={category}> {category.toUpperCase()} </option>
+                    <div>
+                        <label className="form-label">Select Category</label>
+                        <div>
+                            <select onChange={handleCategoryChange} className="form-select">
+                                {
+                                    categories.map(category =>
+                                        <option key={category} value={category}> {category.toUpperCase()} </option>
                                     )
-                            }
-                        </select>
-                      </div>
-                   </div>
+                                }
+                            </select>
+                        </div>
+                    </div>
                 </nav>
                 <main className="col-10 d-flex flex-wrap">
-                   {
-                      products.map(product=>
-                         <div key={product.id} className="card m-2 p-2">
-                            <img src={product.image} height="150" className="card-img-top" />
-                            <div className="card-header">
-                                <p className="card-title">{product.title}</p>
+                    {
+                        products.map(product =>
+                            <div key={product.id} className="card m-2 p-2">
+                                <img src={product.image} height="150" className="card-img-top" />
+                                <div className="card-header">
+                                    <p className="card-title">{product.title}</p>
+                                </div>
+                                <div className="card-body">
+                                    <dl>
+                                        <dt>Price</dt>
+                                        <dd>{product.price}</dd>
+                                        <dt>Rating</dt>
+                                        <dd> <span className="bi bi-star-fill text-success"></span> {product.rating.rate} [{product.rating.count}]</dd>
+                                    </dl>
+                                </div>
+                                <div className="card-footer">
+                                    <button id={product.id} onClick={handleAddToCartClick} className="btn btn-danger w-100"> <span className="bi bi-cart4"></span> Add to Cart</button>
+                                </div>
                             </div>
-                            <div className="card-body">
-                                <dl>
-                                    <dt>Price</dt>
-                                    <dd>{product.price}</dd>
-                                    <dt>Rating</dt>
-                                    <dd> <span className="bi bi-star-fill text-success"></span> {product.rating.rate} [{product.rating.count}]</dd>
-                                </dl>
-                            </div>
-                            <div className="card-footer">
-                                <button id={product.id} onClick={handleAddToCartClick} className="btn btn-danger w-100"> <span className="bi bi-cart4"></span> Add to Cart</button>
-                            </div>
-                         </div>
                         )
-                   }
+                    }
                 </main>
             </section>
         </div>
