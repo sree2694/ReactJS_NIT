@@ -10,11 +10,14 @@ import "../node_modules/bootstrap/dist/js/bootstrap.bundle.js";
 
 import { FakestoreComponent } from './fakestoreapi/fakestore.component';
 import { StyleBinding } from './style-binding/style-binding';
+import { EventBinding } from './event-binding/event.binding';
+import { EventBindingRest } from './event-binding/event.bindingRestpara';
+import { EventBindingSpread } from './event-binding/spread';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-<StyleBinding/>
+<EventBindingSpread/>
   </React.StrictMode>
 );
 
