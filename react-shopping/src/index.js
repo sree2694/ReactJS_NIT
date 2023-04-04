@@ -13,11 +13,15 @@ import { StyleBinding } from './style-binding/style-binding';
 import { EventBinding } from './event-binding/event.binding';
 import { EventBindingRest } from './event-binding/event.bindingRestpara';
 import { EventBindingSpread } from './event-binding/spread';
+import { PasswordStrengthMeter } from './Form/PasswordStrengthMeter';
+import { KeyDemo } from './event-binding/keydemo';
+import { UserNameDemo } from './Form/UserName';
+import { RegUserDemo } from './Form/RegUser';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-<EventBindingSpread/>
+<RegUserDemo/>
   </React.StrictMode>
 );
 
