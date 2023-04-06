@@ -17,11 +17,17 @@ import { PasswordStrengthMeter } from './Form/PasswordStrengthMeter';
 import { KeyDemo } from './event-binding/keydemo';
 import { UserNameDemo } from './Form/UserName';
 import { RegUserDemo } from './Form/RegUser';
+import { ButtonDemo } from './TimerEvents/Button Demo';
+
+import UserNameAndPasswordValidation from './Form/UserNameAndPasswordValidation';
+import { HomeComponent } from './customized-components/home-component';
+import { LoginComponent } from './customized-components/login-component';
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-<RegUserDemo/>
+<HomeComponent/>
   </React.StrictMode>
 );
 
