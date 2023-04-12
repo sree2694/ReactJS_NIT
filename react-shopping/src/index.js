@@ -9,13 +9,15 @@ import reportWebVitals from './reportWebVitals';
 import Database from './Constructor/Database';
 import Apps from './Constructor/Apps';
 import { LoginClassComponent } from './Constructor/LoginClassComponent';
+import { LoginClassComponentConstructor } from './Constructor/LoginConstructor';
+import { FakestoreClass } from './Constructor/FakestoreClass';
 
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-<LoginClassComponent/>
+<FakestoreClass/>
   </React.StrictMode>
 );
 
