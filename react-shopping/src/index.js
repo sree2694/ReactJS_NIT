@@ -12,13 +12,14 @@ import { LoginClassComponent } from './Constructor/LoginClassComponent';
 import { LoginClassComponentConstructor } from './Constructor/LoginConstructor';
 import { FakestoreClass } from './Constructor/FakestoreClass';
 import { LifeCycleDemo, LoginComponent } from './Constructor/LoginComponent';
+import { PureDemo } from './customized-components/PureDemo';
 
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-<LifeCycleDemo/>
+<PureDemo/>
   </React.StrictMode>
 );
 
