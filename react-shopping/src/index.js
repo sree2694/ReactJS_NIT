@@ -15,7 +15,7 @@ import Dropdowns from './Dropdown/Dropdowns';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-<Dropdowns/>
+<FormDemo/>
   </React.StrictMode>
 );
 
