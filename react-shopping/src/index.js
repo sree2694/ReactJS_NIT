@@ -10,12 +10,13 @@ import { FormDemo } from './Component/form-demo/FormDemo';
 import ProgrammingLanguageDropdown from './Dropdown/ProgrammingLanguageDropdown';
 
 import Dropdowns from './Dropdown/Dropdowns';
+import { FormikDemo } from './Component/form-demo/formik-demo';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-<FormDemo/>
+<FormikDemo/>
   </React.StrictMode>
 );
 
