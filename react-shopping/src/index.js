@@ -13,12 +13,13 @@ import Dropdowns from './Dropdown/Dropdowns';
 import { FormikDemo } from './Component/form-demo/formik-demo';
 import { YupDemo } from './Component/yup-demo/Yupdemo';
 import { FormikComponent } from './Component/yup-demo/formik-component';
+import { TutorialComponent } from './react-routing/tutorial-component';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-<FormikComponent/>
+<TutorialComponent/>
   </React.StrictMode>
 );
 
