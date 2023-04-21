@@ -32,14 +32,14 @@ export function YupDemo(){
         <h2>Register - Formik Yup</h2>
          <dl>
              <dt>User Name</dt>
-             <dd><input type="text" onChange={formik.handleChange}  name="UserName"/></dd>
+             <dd><input type="text" {...formik.getFieldProps("UserName")} name="UserName"/></dd>
              <dd className="text-danger">{formik.errors.UserName}</dd>
              <dt>Age</dt>
-             <dd><input type="text" onChange={formik.handleChange} name="Age" /></dd>
+             <dd><input type="text" {...formik.getFieldProps("Age")} name="Age" /></dd>
              <dd className="text-danger">{formik.errors.Age}</dd>
              <dt>City</dt>
              <dd>
-                 <select onChange={formik.handleChange}  name="City">
+                 <select {...formik.getFieldProps("City")} name="City">
                      <option value="-1">Choose City</option>
                      <option value="Delhi">Delhi</option>
                      <option value="Hyd">Hyd</option>
@@ -48,7 +48,7 @@ export function YupDemo(){
              <dd className="text-danger"></dd>
              <dt>Mobile</dt>
              <dd>
-                 <input type="text" onChange={formik.handleChange} name="Mobile" />
+                 <input type="text" {...formik.getFieldProps("Mobile")} name="Mobile" />
              </dd>
              <dd className="text-danger">{formik.errors.Mobile}</dd>
          </dl>

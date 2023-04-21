@@ -11,12 +11,14 @@ import ProgrammingLanguageDropdown from './Dropdown/ProgrammingLanguageDropdown'
 
 import Dropdowns from './Dropdown/Dropdowns';
 import { FormikDemo } from './Component/form-demo/formik-demo';
+import { YupDemo } from './Component/yup-demo/Yupdemo';
+import { FormikComponent } from './Component/yup-demo/formik-component';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-<FormikDemo/>
+<FormikComponent/>
   </React.StrictMode>
 );
 
