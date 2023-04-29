@@ -1,19 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { FakeStoreIndex } from './fakestore-spa/fakestore-index';
+import { TutorialIndex } from './tutorial/tutorial-index';
 
 import "bootstrap/dist/css/bootstrap.min.css";
-
 import "bootstrap/dist/js/bootstrap.bundle.min";
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <FakeStoreIndex />
+    <TutorialIndex/>
   </React.StrictMode>
 );
 
