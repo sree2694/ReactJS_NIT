@@ -28,11 +28,11 @@ app.get("/customers", (req, res)=>{
 
 app.post("/registercustomer", (req, res)=>{
      var customerDetails = {
-        UserId: req.body.UserId,
+        UserId: req.body.UserId, 
         UserName: req.body.UserName,
-        Password: req.body.Password,
+        Password: req.body.Password, 
         Age: parseInt(req.body.Age),
-        Email: req.body.Email,
+        Email: req.body.Email, 
         Mobile: req.body.Mobile
      };
      mongoClient.connect(conStr)

@@ -1,9 +1,13 @@
 import { useFormik } from "formik";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 export function TutorialRegister()
 {
+    const [userError, setUserError] = useState('');
+    const [users, setUsers] = useState([]);
+    const [colorClass, setColorClass] = useState('');
     const navigate = useNavigate();
     const formik = useFormik({
         initialValues: {
@@ -24,13 +28,35 @@ export function TutorialRegister()
             navigate("/login");
         }
     })
+
+    function VerifyUserId(e){
+        axios({
+            method: "get",
+            url: "http://127.0.0.1:5000/customers"
+        })
+        .then(response=> {
+            setUsers(response.data);
+            for(var user of users) {
+                if(user.UserId===e.target.value) {
+                    setUserError('User Id Taken - Try Another');
+                    setColorClass('text-danger');
+                    break;
+                } else {
+                    setUserError('User Id Available');
+                    setColorClass('text-success');
+                }
+            }
+        })
+    }
+
     return(
         <div>
             <h3>Register User</h3>
             <form onSubmit={formik.handleSubmit}>
                 <dl>
                     <dt>User Id</dt>
-                    <dd><input type="text" name="UserId" onChange={formik.handleChange} /></dd>
+                    <dd><input type="text" onKeyUp={VerifyUserId} name="UserId" onChange={formik.handleChange} /></dd>
+                    <dd className={colorClass}>{userError}</dd>
                     <dt>User Name</dt>
                     <dd><input type="text" name="UserName" onChange={formik.handleChange} /></dd>
                     <dt>Password</dt>
@@ -43,6 +69,9 @@ export function TutorialRegister()
                     <dd><input type="text" name="Mobile" onChange={formik.handleChange} /></dd>
                 </dl>
                 <button>Register</button>
+                <p>
+                    <Link to="/login">Existing User Login</Link>
+                </p>
             </form>
         </div>
     )

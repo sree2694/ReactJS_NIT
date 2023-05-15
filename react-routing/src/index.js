@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 import { TutorialIndex } from './tutorial/tutorial-index';
-
+import { CookiesProvider } from 'react-cookie';
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min";
 
@@ -11,7 +11,9 @@ import "bootstrap/dist/js/bootstrap.bundle.min";
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <TutorialIndex/>
+        <CookiesProvider>
+      <TutorialIndex />
+    </CookiesProvider>
   </React.StrictMode>
 );
 
